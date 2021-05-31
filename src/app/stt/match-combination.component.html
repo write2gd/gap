@@ -1,0 +1,176 @@
+<div style="margin: 100px;">
+  <h1>Speech To Text</h1>
+  <button style="margin: 10px;" (click)="startService()"><i class="fa fa-microphone" aria-hidden="true" style="color: #1251b5"></i></button>
+  <button style="margin: 10px;" (click)="stopService()">Stop</button><br>
+  <textarea rows="10"  cols ="100" maxlength="3000" onkeypress="startEdit()">{{service.text}}</textarea>
+</div>
+
+
+<!--<div class="container grid-container mt-0 mt-md-3">-->
+  <!--&lt;!&ndash;****************************PAGE HEADING*************************************&ndash;&gt;-->
+  <!--<h6>-->
+    <!--<i class="fa fa-chevron-circle-up text text-muted" *ngIf="!showForm" aria-hidden="true"></i>-->
+    <!--<i class="fa fa-chevron-circle-down text text-success" *ngIf="showForm" aria-hidden="true"></i>-->
+    <!--Match Combination-->
+    <!--<span class="pull-right curpoint action-btn" (click)="showForm = !showForm">-->
+      <!--[ <i *ngIf="showForm" [ngbTooltip]="'Compress'"  class="fa fa-compress" aria-hidden="true"></i>-->
+      <!--<i *ngIf="!showForm"  [ngbTooltip]="'Expand'" class="fa fa-expand" aria-hidden="true"></i> ]</span>-->
+  <!--</h6>-->
+  <!--&lt;!&ndash;****************************END***********************************************&ndash;&gt;-->
+  <!--<hr>-->
+  <!--&lt;!&ndash;****************************MATCH COMBINATION FORM****************************&ndash;&gt;-->
+  <!--<div *ngIf="showForm" [@fadeInOut]="load_completed">-->
+    <!--<form class="container-fluid"  novalidate [formGroup]="matchCombinationForm">-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="cn">Chassis No.</label>-->
+          <!--<input type="text" id="cn" formControlName="chassNo" class="form-control form-control-sm ">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="cs" >Chassis Series</label>-->
+          <!--<input type="text" id="cs" formControlName="chassisSer" class="form-control form-control-sm ">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="model" >Model</label>-->
+          <!--<input type="text" id="model" formControlName="model" class="form-control form-control-sm col-8 ">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="pc">PC</label>-->
+          <!--<input type="text" id="pc" formControlName="pc" class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="factory" >Factory</label>-->
+          <!--<input type="text" id="factory" formControlName="factory" class="form-control form-control-sm ">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="variant">Add Variant</label>-->
+          <!--<input type="text" id="variant" formControlName="addVariant" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group ">-->
+          <!--<label for="dv">Delete Variant</label>-->
+          <!--<input type="text" id="dv" formControlName="delVariant" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="family">Add Family</label>-->
+          <!--<input type="text" id="family" formControlName="addFamily" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="df">Delete Family</label>-->
+          <!--<input type="text" id="df" formControlName="delFamily" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="add_ca">Add CA</label>-->
+          <!--<input type="text" id="add_ca" formControlName="addCa" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="del_ca">Delete CA</label>-->
+          <!--<input type="text" id="del_ca" formControlName="delCa" class="form-control form-control-sm">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="engine">Engine</label>-->
+          <!--<input type="text" id="engine" formControlName="engine" class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="eod">Old Digits</label>&nbsp;<i ngbTooltip="{{onlyNumbersMsg}}" class="fa fa-info-circle  text text-info" style="font-size: 12px;" aria-hidden="true"></i>-->
+          <!--<input type="text"-->
+                 <!--id="eod"-->
+                 <!--formControlName="engineOldDigit"-->
+                 <!--(keypress)="numbersOnly($event)"-->
+                 <!--class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="end">New Digits</label>&nbsp;<i ngbTooltip="{{onlyNumbersMsg}}" class="fa fa-info-circle  text text-info" style="font-size: 12px;" aria-hidden="true"></i>-->
+          <!--<input type="text"-->
+                 <!--id="end"-->
+                 <!--formControlName="engineNewDigit"-->
+                 <!--(keypress)="numbersOnly($event)"-->
+                 <!--class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row mb-3">-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="transmission">Transmission</label>-->
+          <!--<input type="text" id="transmission" formControlName="transmission" class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="tod">Old Digits</label>&nbsp;<i ngbTooltip="{{onlyNumbersMsg}}" class="fa fa-info-circle  text text-info" style="font-size: 12px;" aria-hidden="true"></i>-->
+          <!--<input type="text"-->
+                 <!--id="tod"-->
+                 <!--formControlName="transmissionOldDigit"-->
+                 <!--(keypress)="numbersOnly($event)"-->
+                 <!--class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-2 col-md-2 col-lg-2">-->
+        <!--<div class="form-group">-->
+          <!--<label for="tnd">New Digits&nbsp;<i ngbTooltip="{{onlyNumbersMsg}}" class="fa fa-info-circle text text-info" style="font-size: 12px;" aria-hidden="true"></i></label>-->
+          <!--<input type="text"-->
+                 <!--id="tnd"-->
+                 <!--formControlName="transmissionNewDigit"-->
+                 <!--(keypress)="numbersOnly($event)"-->
+                 <!--class="form-control form-control-sm col-8">-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-2 text-right pt-4">-->
+        <!--<button class="btn btn-primary btn-sm" (click)="startMatch()">Match</button>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+  <!--&lt;!&ndash;*****************************END**********************************************&ndash;&gt;-->
+  <!--<jsvs-items-grid [items]="items"></jsvs-items-grid>-->
+  <!--&lt;!&ndash;{{items}}&ndash;&gt;-->
+  <!--&lt;!&ndash;<table class="table">&ndash;&gt;-->
+    <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Change Type</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Change</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Covered By Rules</th>&ndash;&gt;-->
+    <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+    <!--&lt;!&ndash;<tbody>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr *ngFor="let item of items">&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{item.itema}}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{item.itemb}}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{item.itemc}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
+  <!--&lt;!&ndash;</table>&ndash;&gt;-->
+<!--</div>-->
