@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'app/core/notification/notification';
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+body {
+  padding-bottom: 5rem;
+  @include media-breakpoint-down(sm) {
+    padding-bottom: 3rem;
+  }
+}
+.curpoint {cursor: pointer}
+.action-btn {
+  color: lightslategray;
+}
+.action-btn:hover {color: #000000}
+.k-grid {
+  td, th {
+    border-width: 0;
+  }
+}
+.navbar .container .navbar-text {
+  width: 100px!important;
+}

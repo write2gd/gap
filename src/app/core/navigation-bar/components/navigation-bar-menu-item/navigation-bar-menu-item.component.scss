@@ -1,0 +1,33 @@
+@import '../../../../../variables';
+
+.nav-link {
+  padding: $jsvs-navbar-menu-item-nav-link-padding;
+  transition: $jsvs-navbar-menu-item-nav-link-transition;
+
+  &:hover {
+    box-shadow: $jsvs-navbar-menu-item-link-active-box-shadow;
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      box-shadow: $jsvs-navbar-menu-item-link-active-box-shadow-mobile;
+    }
+  }
+}
+
+a.nav-link {
+  background: transparent;
+  border: 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+::ng-deep {
+  .jsvs-navbar .active a.nav-link {
+    box-shadow: $jsvs-navbar-menu-item-link-active-box-shadow;
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      box-shadow: $jsvs-navbar-menu-item-link-active-box-shadow-mobile;
+    }
+  }
+}
+
+

@@ -1,0 +1,38 @@
+<jsvs-navigation-bar [mobileTitle]="mobileTitle$ | async | translate"
+                     [menuOpen]="menuOpen$ | async"
+                     (menuOpenChange)="menuOpenChange($event)"
+                     [menuAriaLabel]="'MENU.TOGGLE' | translate">
+  <ng-template #header>
+    <a class="navbar-brand volvo-brand" routerLink="/">
+      <img src="assets/images/logo.svg" alt="Volvo" height="80"/>
+    </a>
+    <div class="navbar-text hidden-xs width-100">
+      Video Analyzer
+    </div>
+  <!--</ng-template>-->
+
+    <!--<ng-template #leftMenu>-->
+      <!--<ng-container *ngFor="let menuItem of menuConfig">-->
+        <!--<jsvs-navigation-bar-menu-item *ngIf="isAuthenticated() || !menuItem.authenticated"-->
+                                       <!--routerLinkActive="active"-->
+                                       <!--[routerLink]="menuItem.route"-->
+                                       <!--[onClickCollapse]="menuItem.onClickCollapse">-->
+          <!--{{ menuItem.label | translate}}-->
+        <!--</jsvs-navigation-bar-menu-item>-->
+      <!--</ng-container>-->
+    </ng-template>
+
+
+  <!--<ng-template #rightMenu>-->
+    <!--<jsvs-navigation-bar-menu-item *ngIf="!isAuthenticated()"-->
+                                   <!--(clickEmitter)="login()" id="login">-->
+      <!--<fa-icon icon="user"></fa-icon>-->
+      <!--{{'MENU.SIGNIN' | translate}}-->
+    <!--</jsvs-navigation-bar-menu-item>-->
+    <!--<jsvs-navigation-bar-menu-item *ngIf="isAuthenticated()"-->
+                                   <!--(clickEmitter)="logout()" id="logout">-->
+      <!--<fa-icon icon="user"></fa-icon>-->
+      <!--{{ 'MENU.SIGNOUT' | translate: {user: (user$ | async)?.sub} }}-->
+    <!--</jsvs-navigation-bar-menu-item>-->
+  <!--</ng-template>-->
+</jsvs-navigation-bar>

@@ -1,0 +1,20 @@
+@import '../../../../../variables';
+.footer {
+  background-color: $jsvs-footer-bg;
+  color: $jsvs-footer-color;
+  font-weight: 500;
+  padding-top: .5rem;
+  z-index: 10;
+  a {
+    color: $jsvs-footer-color-links;
+    &:hover,
+    &:focus,
+    &:active {
+      color: lighten($jsvs-footer-color-links, 10%);
+    }
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+    font-size: .75rem;
+    padding-top: .75rem;
+  }
+}

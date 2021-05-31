@@ -1,0 +1,17 @@
+<ng-template #content let-close="close" let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+  </div>
+  <div class="modal-body">
+    <ng-content *ngIf="!projectedTemplate; else projectedContainer"></ng-content>
+    <ng-template #projectedContainer>
+      <ng-container *ngTemplateOutlet="projectedTemplate; context: {$implicit: (data)}"></ng-container>
+    </ng-template>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="dismiss()">{{cancelButtonLabel}}</button>
+    <button class="btn btn-primary" (click)="close(data)">{{actionButtonLabel}}</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary modal-launcher" (click)="open(content)">{{launchButtonLabel}}</button>

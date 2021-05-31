@@ -1,0 +1,16 @@
+@import '../../../../../variables';
+
+.container {
+  &.grid-container {
+    @include media-breakpoint-between(sm, md) {
+      max-width: 100%;
+    }
+  }
+}
+label {
+  margin-bottom: 0 !important;
+}
+.form-group {
+  margin-bottom: .2rem !important;
+  font-size: 14px !important;
+}

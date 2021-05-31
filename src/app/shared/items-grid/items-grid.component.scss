@@ -1,0 +1,96 @@
+@import "../../../variables";
+@import "~bootstrap/scss/forms";
+
+::ng-deep {
+
+  .k-grid {
+    td {
+      padding: .25rem .25rem;
+      background-color: #ffffff;
+      //border-bottom: 1px solid #aaa;
+      &.expander {
+        vertical-align: top;
+        width: 3.125rem;
+      }
+      .k-mobile-title {
+        line-height: $line-height-sm * 1.75;
+      }
+
+      .k-mobile-item {
+        p {
+          margin: 0 0 $table-cell-padding-sm 0;
+        }
+      }
+      @include media-breakpoint-between(sm, md) {
+        padding: $table-cell-padding-sm;
+        font-size: $font-size-sm;
+      }
+    }
+    td, th {
+      border-width: 0 0 $border-width 0;
+    }
+
+    .k-grid-pager {
+      .k-pager-sizes {
+        select {
+          @extend .form-control
+        }
+        &.k-label {
+          white-space: nowrap;
+        }
+      }
+      @include media-breakpoint-down(sm) {
+        flex-flow: wrap;
+        justify-content: space-between;
+        kendo-pager-prev-buttons,
+        kendo-pager-next-buttons,
+        kendo-pager-numeric-buttons {
+          margin: $table-cell-padding-sm ($table-cell-padding-sm / 2);
+        }
+        kendo-pager-info,
+        kendo-pager-page-sizes {
+          font-size: $font-size-sm;
+          margin: $table-cell-padding-sm ($table-cell-padding-sm / 2);
+          white-space: nowrap;
+          select {
+            padding: 0 ($table-cell-padding-sm / 2);
+            margin: 0 $table-cell-padding-sm 0 0;
+            height: 2rem;
+          }
+        }
+      }
+    }
+
+    .k-grid-header {
+      @include gradient-y( $jsvs-gradient-start-color, $jsvs-gradient-end-color);
+      .k-header {
+        color: white;
+        > .k-link {
+          > .k-icon {
+            &.k-i-sort-desc-sm,
+            &.k-i-sort-asc-sm {
+              vertical-align: middle;
+              font-family: FontAwesome;
+              margin-top: -5px;
+            }
+            &.k-i-sort-desc-sm:before {
+              content: "\f0d7";
+            }
+            &.k-i-sort-asc-sm:before {
+              content: "\f0d8";
+            }
+          }
+        }
+      }
+      tr {
+        &:first-child {
+          display: none !important;
+        }
+      }
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+  }
+
+}

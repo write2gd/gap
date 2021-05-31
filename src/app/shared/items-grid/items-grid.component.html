@@ -1,0 +1,34 @@
+<kendo-grid #grid
+            class="row"
+            [data]="items">
+
+  <kendo-grid-column-group media="(max-width: 767px)">
+    <kendo-grid-column class="expander">
+      <ng-template kendoGridCellTemplate let-rowIndex="rowIndex">
+        <button type="button" class="btn btn-link"
+                (click)="toggleRowExpanded(rowIndex)">
+          <fa-icon [icon]="rowIndex === expandedRowIndex ? 'chevron-up' : 'chevron-down'"></fa-icon>
+        </button>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column title="Name" field="name" [editable]="false" [sortable]="false">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        {{dataItem}}
+        <p (click)="toggleRowExpanded(rowIndex)" class="k-mobile-title m-0 h6">{{dataItem.name}}</p>
+        <div class="k-mobile-item pt-3 pb-3" *ngIf="(expandedRowIndex) === rowIndex">
+          <p><strong>ID:</strong> {{dataItem.id}}</p>
+          <p><strong>Name:</strong> {{dataItem.name}}</p>
+          <p><strong>Team:</strong> {{dataItem.team}}</p>
+          <!--<p><strong>Bonus:</strong> {{dataItem.bonus}}</p>-->
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid-column-group>
+
+  <kendo-grid-column-group media="md">
+    <kendo-grid-column field="changeType" title="Change Type"></kendo-grid-column>
+    <kendo-grid-column field="change" title="Change"></kendo-grid-column>
+    <kendo-grid-column field="matchRule" title="Covered By Rules"></kendo-grid-column>
+    <!--<kendo-grid-column field="bonus" title="Bonus"></kendo-grid-column>-->
+  </kendo-grid-column-group>
+</kendo-grid>

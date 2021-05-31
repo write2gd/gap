@@ -1,0 +1,12 @@
+{
+  "MENU.TITLE": "",
+  "MENU.SIGNIN": "Zaloguj",
+  "MENU.SIGNOUT": "{{user}} (sign out)",
+  "MENU.HOME": "",
+  "MENU.TOGGLE": "Przełącz Menu",
+  "MENU.TEAM_A": "Drużyna A",
+  "MENU.TEAM_B": "Drużyna B",
+  "MENU.TEAM_C": "Drużyna C",
+  "MENU.TEAM_D": "Drużyna D",
+  "MENU.ITEMS": "Przedmioty"
+}
